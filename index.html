@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ขอใบเสนอราคา - 42one95</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Sarabun', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <div class="max-w-4xl mx-auto my-10 p-8 bg-white rounded-xl shadow-sm border border-gray-100">
+        
+        <div class="border-b border-gray-100 pb-6 mb-8">
+            <h1 class="text-3xl font-bold text-gray-900">ขอใบเสนอราคางานวิ่ง</h1>
+            <p class="text-gray-500 mt-2">กรอกข้อมูลเบื้องต้นของงานวิ่งของคุณ ทีมงานจะจัดทำใบเสนอราคาพร้อมข้อเสนอที่เหมาะสมที่สุดให้คุณ</p>
+        </div>
+
+        <form class="space-y-6">
+            <div class="flex items-center space-x-2 text-orange-600 font-semibold text-lg mb-4">
+                <span class="w-7 h-7 bg-orange-600 text-white rounded-full flex items-center justify-center text-sm">1</span>
+                <h2>ข้อมูลงานวิ่ง <span class="text-gray-400 font-normal text-sm">(รายละเอียดเบื้องต้น)</span></h2>
+            </div>
+
+            <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2">ชื่อชื่องานวิ่ง <span class="text-red-500">*</span></label>
+                <input type="text" placeholder="เช่น CMU Marathon 2026" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:outline-none text-sm">
+            </div>
+
+            <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-2">หน่วยงาน / ผู้จัดงาน <span class="text-red-500">*</span></label>
+                <input type="text" placeholder="เช่น สมาคมนักศึกษาเก่ามหาวิทยาลัยเชียงใหม่" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:outline-none text-sm">
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">วันที่จัดงาน <span class="text-red-500">*</span></label>
+                    <input type="date" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:outline-none text-sm text-gray-500">
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">สถานที่จัดงาน <span class="text-red-500">*</span></label>
+                    <select class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:outline-none text-sm text-gray-500">
+                        <option value="">เลือกจังหวัด</option>
+                        <option value="chiangmai">เชียงใหม่</option>
+                        <option value="bangkok">กรุงเทพมหานคร</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-3">ประเภทรายการวิ่ง <span class="text-red-500">*</span></label>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                    <label class="flex items-center space-x-2 text-sm text-gray-600 cursor-pointer">
+                        <input type="checkbox" class="w-4 h-4 text-orange-600 border-gray-300 rounded focus:ring-orange-500">
+                        <span>Marathon (42.195 km)</span>
+                    </label>
+                    <label class="flex items-center space-x-2 text-sm text-gray-600 cursor-pointer">
+                        <input type="checkbox" class="w-4 h-4 text-orange-600 border-gray-300 rounded focus:ring-orange-500">
+                        <span>Half Marathon (21.1 km)</span>
+                    </label>
+                    <label class="flex items-center space-x-2 text-sm text-gray-600 cursor-pointer">
+                        <input type="checkbox" class="w-4 h-4 text-orange-600 border-gray-300 rounded focus:ring-orange-500">
+                        <span>Mini Marathon (10-15 km)</span>
+                    </label>
+                    <label class="flex items-center space-x-2 text-sm text-gray-600 cursor-pointer">
+                        <input type="checkbox" class="w-4 h-4 text-orange-600 border-gray-300 rounded focus:ring-orange-500">
+                        <span>Fun Run (3-5 km)</span>
+                    </label>
+                    <label class="flex items-center space-x-2 text-sm text-gray-600 cursor-pointer">
+                        <input type="checkbox" class="w-4 h-4 text-orange-600 border-gray-300 rounded focus:ring-orange-500">
+                        <span>Virtual Run</span>
+                    </label>
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-sm font-semibold text-gray-700 mb-3">จำนวนผู้เข้าร่วมโดยประมาณ <span class="text-red-500">*</span></label>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                    <label class="flex items-center space-x-2 text-sm text-gray-600 cursor-pointer">
+                        <input type="radio" name="runners" class="w-4 h-4 text-orange-600 border-gray-300 focus:ring-orange-500">
+                        <span>น้อยกว่า 500 คน</span>
+                    </label>
+                    <label class="flex items-center space-x-2 text-sm text-gray-600 cursor-pointer">
+                        <input type="radio" name="runners" class="w-4 h-4 text-orange-600 border-gray-300 focus:ring-orange-500">
+                        <span>500 - 1,000 คน</span>
+                    </label>
+                    <label class="flex items-center space-x-2 text-sm text-gray-600 cursor-pointer">
+                        <input type="radio" name="runners" class="w-4 h-4 text-orange-600 border-gray-300 focus:ring-orange-500">
+                        <span>1,001 - 3,000 คน</span>
+                    </label>
+                    <label class="flex items-center space-x-2 text-sm text-gray-600 cursor-pointer">
+                        <input type="radio" name="runners" class="w-4 h-4 text-orange-600 border-gray-300 focus:ring-orange-500">
+                        <span>มากกว่า 3,000 คน</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="pt-6 border-t border-gray-100 flex justify-end space-x-3">
+                <button type="button" class="px-5 py-2.5 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50 transition">บันทึกไว้ก่อน</button>
+                <button type="button" class="px-6 py-2.5 bg-orange-600 hover:bg-orange-700 text-white rounded-lg text-sm font-medium shadow-sm transition flex items-center space-x-1">
+                    <span>ถัดไป: ความต้องการระบบ</span>
+                    <span>&rarr;</span>
+                </button>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
