@@ -4,32 +4,36 @@ import streamlit.components.v1 as components
 # Set the page to full width
 st.set_page_config(layout="wide")
 
-# สร้าง Sidebar สำหรับให้กดเลือกเวอร์ชันของหน้าเว็บ (เพิ่มเป็น 3 ตัวเลือก)
-st.sidebar.title("🎨 Design Version")
-selected_version = st.sidebar.radio(
-    "เลือกดูดีไซน์หน้าแรก:",
+st.sidebar.title("Navigation & Design")
+
+# เพิ่มเมนูรวมเลเยอร์หน้า "ระบบของเรา" เข้าไปในระบบช้อยส์
+selected_page = st.sidebar.radio(
+    "เลือกหน้าเว็บที่ต้องการตรวจ:",
     (
-        "Version 1 (Original Style)", 
-        "Version 2 (Premium Dark Blue)", 
-        "Version 3 (Tech-SaaS Automation)"
+        "หน้าแรก - สไตล์ที่ 1 (Original)", 
+        "หน้าแรก - สไตล์ที่ 2 (Premium Blue)", 
+        "หน้าแรก - สไตล์ที่ 3 (SaaS Clean)",
+        "หน้ารายละเอียด - ระบบของเรา (Services)" # 👈 กดดูหน้านี้ได้จากตรงนี้เลย
     )
 )
 
-# จับคู่ตัวเลือกกับชื่อไฟล์ HTML
-if selected_version == "Version 1 (Original Style)":
+# แมปช้อยส์เข้าหาไฟล์ html ในเครื่อง
+if selected_page == "หน้าแรก - สไตล์ที่ 1 (Original)":
     file_to_open = "index.html"
-elif selected_version == "Version 2 (Premium Dark Blue)":
+elif selected_page == "หน้าแรก - สไตล์ที่ 2 (Premium Blue)":
     file_to_open = "index2.html"
-else:
+elif selected_page == "หน้าแรก - สไตล์ที่ 3 (SaaS Clean)":
     file_to_open = "index3.html"
+else:
+    file_to_open = "our-services.html" # 👈 วิ่งไปเปิดไฟล์นี้ทันที
 
-# อ่านไฟล์ HTML ที่ถูกเลือกมาแสดงผล
+# อ่านและเรนเดอร์เนื้อหา
 try:
     with open(file_to_open, "r", encoding="utf-8") as f:
         html_content = f.read()
         
-    # เรนเดอร์ไฟล์ HTML (ปรับความสูงเป็น 1200 เพื่อให้ดูได้เต็มอิ่ม)
-    components.html(html_content, height=1200, scrolling=True)
+    # ปรับความสูงเพิ่มเป็น 1500 เผื่อหน้าระบบของเรามีรายละเอียดฟีเจอร์ค่อนข้างยาวครับ
+    components.html(html_content, height=1500, scrolling=True)
 
 except FileNotFoundError:
-    st.error(f"❌ ไม่พบไฟล์ '{file_to_open}' กรุณาตรวจสอบว่าวางไฟล์นี้ไว้ในโฟลเดอร์เดียวกับ app.py แล้วหรือยัง")
+    st.error(f"❌ ไม่พบไฟล์ '{file_to_open}' ในโฟลเดอร์ กรุณาเช็คชื่อไฟล์อีกครั้งครับ")
