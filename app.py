@@ -13,6 +13,7 @@ selected_page = st.sidebar.radio(
         "หน้าแรก - สไตล์ที่ 1 (Original)", 
         "หน้าแรก - สไตล์ที่ 2 (Premium Blue)", 
         "หน้าแรก - สไตล์ที่ 3 (SaaS Clean)",
+        "หน้าแรก - สไตล์ที่ 4 (Immersive Split Grid)",
         "หน้ารายละเอียด - ระบบของเรา (Services) สไตล์ที่ 1" ,
         "หน้ารายละเอียด - ระบบของเรา (Services) สไตล์ที่ 2",
         "หน้ารายละเอียด - ระบบของเรา (Services) สไตล์ที่ 3"
@@ -26,6 +27,8 @@ elif selected_page == "หน้าแรก - สไตล์ที่ 2 (Premi
     file_to_open = "index2.html"
 elif selected_page == "หน้าแรก - สไตล์ที่ 3 (SaaS Clean)":
     file_to_open = "index3.html"
+elif selected_page == "หน้าแรก - สไตล์ที่ 4 (Immersive Split Grid)":
+    file_to_open = "index4.html"
 elif selected_page == "หน้ารายละเอียด - ระบบของเรา (Services) สไตล์ที่ 2":
     file_to_open = "our-services2.html"
 elif selected_page == "หน้ารายละเอียด - ระบบของเรา (Services) สไตล์ที่ 3":
