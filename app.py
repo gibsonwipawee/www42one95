@@ -16,7 +16,8 @@ selected_page = st.sidebar.radio(
         "หน้าแรก - สไตล์ที่ 4 (Immersive Split Grid)",
         "หน้ารายละเอียด - ระบบของเรา (Services) สไตล์ที่ 1" ,
         "หน้ารายละเอียด - ระบบของเรา (Services) สไตล์ที่ 2",
-        "หน้ารายละเอียด - ระบบของเรา (Services) สไตล์ที่ 3"
+        "หน้ารายละเอียด - ระบบของเรา (Services) สไตล์ที่ 3",
+        "หน้ารายละเอียด - ระบบของเรา (Services) สไตล์ที่ 4"
     )
 )
 
@@ -33,6 +34,8 @@ elif selected_page == "หน้ารายละเอียด - ระบบ
     file_to_open = "our-services2.html"
 elif selected_page == "หน้ารายละเอียด - ระบบของเรา (Services) สไตล์ที่ 3":
     file_to_open = "our-services3.html"
+elif selected_page == "หน้ารายละเอียด - ระบบของเรา (Services) สไตล์ที่ 4":
+    file_to_open = "our-services4.html"
 else:
     file_to_open = "our-services.html" # 👈 วิ่งไปเปิดไฟล์นี้ทันที
 
