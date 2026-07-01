@@ -8,9 +8,9 @@ ROOT = Path(__file__).parent
 
 STYLE_FILES = {
     "Style 1 - Original": ROOT / "style1" / "index.html",
-    "Style 2 - Premium Blue": ROOT / "style2" / "index2.html",
-    "Style 3 - SaaS Clean": ROOT / "style3" / "index3.html",
-    "Style 4 - Immersive Split Grid": ROOT / "style4" / "index4.html",
+    "Style 2 - Premium Blue": ROOT / "style2" / "index.html",
+    "Style 3 - SaaS Clean": ROOT / "style3" / "index.html",
+    "Style 4 - Immersive Split Grid": ROOT / "style4" / "index.html",
 }
 
 st.set_page_config(page_title="42one95 Style Preview", layout="wide")
