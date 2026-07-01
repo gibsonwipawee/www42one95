@@ -1,4 +1,5 @@
 from pathlib import Path
+import json
 
 import streamlit as st
 import streamlit.components.v1 as components
@@ -23,10 +24,62 @@ selected_style = st.sidebar.radio(
 
 file_to_open = STYLE_FILES[selected_style]
 
+def build_preview_html(file_path):
+    page_files = [file_path.parent / "index.html", file_path.parent / "our-services.html", file_path.parent / "event.html"]
+    pages = {
+        page.name: page.read_text(encoding="utf-8")
+        for page in page_files
+        if page.exists()
+    }
+    html_content = pages[file_path.name]
+    pages_json = json.dumps(pages, ensure_ascii=False).replace("</", "<\\/")
+    router_script = f"""
+    <script>
+    (() => {{
+        const pages = {pages_json};
+
+        function routeKey(rawHref) {{
+            if (!rawHref || rawHref.startsWith('#') || rawHref.startsWith('mailto:') || rawHref.startsWith('tel:')) return null;
+            if (/^https?:\\/\\//i.test(rawHref)) return null;
+
+            const href = rawHref.replace(/^\\.\\//, '');
+            const [path, hash = ''] = href.split('#');
+            const key = path.split('/').pop() || 'index.html';
+
+            return pages[key] ? {{ key, hash }} : null;
+        }}
+
+        function renderPage(key, hash = '') {{
+            const parsed = new DOMParser().parseFromString(pages[key], 'text/html');
+            document.title = parsed.title || document.title;
+            document.head.innerHTML = parsed.head.innerHTML;
+            document.body.innerHTML = parsed.body.innerHTML;
+            window.scrollTo(0, 0);
+
+            if (hash) {{
+                requestAnimationFrame(() => {{
+                    document.getElementById(hash)?.scrollIntoView({{ behavior: 'smooth', block: 'start' }});
+                }});
+            }}
+        }}
+
+        document.addEventListener('click', (event) => {{
+            const link = event.target.closest('a[href]');
+            if (!link) return;
+
+            const route = routeKey(link.getAttribute('href'));
+            if (!route) return;
+
+            event.preventDefault();
+            renderPage(route.key, route.hash);
+        }});
+    }})();
+    </script>
+    """
+    return html_content.replace("</body>", f"{router_script}\n</body>", 1)
+
 try:
-    html_content = file_to_open.read_text(encoding="utf-8")
-    base_tag = f'<base href="{file_to_open.parent.as_uri()}/">'
-    html_content = html_content.replace("<head>", f"<head>\n    {base_tag}", 1)
+    html_content = build_preview_html(file_to_open)
     components.html(html_content, height=3200, scrolling=True)
 except FileNotFoundError:
     st.error(f"ไม่พบไฟล์ {file_to_open}")
